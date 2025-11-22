@@ -11,18 +11,24 @@ A 2D flying submarine game written in Ada 2022, inspired by Sopwith. Control a s
 
 ## Features
 
+### Gameplay
 - **Dual Environment Physics**: Realistic air and water physics with smooth transitions
-- **Dynamic Enemies**: Air fighters, submarines, surface ships, and sea creatures
-- **Weapons Systems**: Torpedoes, missiles, depth charges, and machine guns
-- **Mission System**: Progressive campaigns with varied objectives
-- **Sound System**: Dynamic music crossfading between air/water themes
-- **Power-ups & Upgrades**: Collect items to enhance your submarine
-- **Weather Effects**: Storms, fog, waves affecting gameplay
-- **HUD & UI**: Comprehensive heads-up display with minimap
-- **Achievements**: Track your accomplishments
+- **Dynamic Enemies**: 5 enemy types (fighters, submarines, ships, creatures, bombers)
+- **Weapons Systems**: 4 weapon types (torpedoes, missiles, depth charges, machine guns)
+- **Mission System**: 5 mission types (patrol, destroy, rescue, escort, recon)
+- **Power-ups**: 5 powerup types (health, weapons, speed, shields, ammo)
+- **Collision Detection**: AABB collision for entities
+- **Sound System**: Music crossfading (air/water themes) + sound effects
+- **HUD & UI**: Text-based status display (graphics in future version)
+
+### Technical
 - **100% Type Safe**: Ada 2022 compile-time guarantees
 - **Memory Safe**: SPARK formal verification, zero unsafe operations
 - **Offline-First**: No network dependencies, works air-gapped
+- **Bounded Arrays**: All data structures use fixed-size arrays (no heap allocation)
+- **Formally Verified**: SPARK proofs for memory safety and type safety
+- **Zero Dependencies**: Only Ada standard library
+- **10 Packages**: Game, Submarine, Environment, Physics, Renderer, Weapons, Enemies, Powerups, Collision, Missions, Sound
 
 ## Quick Start
 

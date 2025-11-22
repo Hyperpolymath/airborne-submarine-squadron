@@ -13,12 +13,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Dual MIT + Palimpsest v0.8 licensing
 - TPCF Perimeter 3 governance model
 - .well-known directory (security.txt, ai.txt, humans.txt)
-- Build system (justfile, Nix flake)
-- GitLab CI/CD pipeline
-- Core game engine (Ada 2022)
-- SPARK formal verification
-- Comprehensive test suite
-- Architecture documentation
+- Build system (justfile with 30+ recipes, Nix flake, build.sh)
+- GitLab CI/CD pipeline + GitHub Actions workflow
+- Core game engine (Ada 2022, SPARK-verified)
+- Game packages: Game, Submarine, Environment, Physics, Renderer
+- Weapons system: 4 weapon types with cooldowns and projectile management (100 max projectiles)
+- Enemy system: 5 enemy types with AI (patrol/attack/flee states, 50 max enemies)
+- Powerup system: 5 powerup types (health, weapons, speed, shields, ammo, 20 max powerups)
+- Collision detection: AABB and point-in-box algorithms
+- Mission system: 5 mission types with objectives and time limits
+- Sound system: Music crossfading and sound effects (stub implementation)
+- Comprehensive test suite with unit tests
+- Complete architecture and API documentation
+- INSTALL.md with platform-specific installation guides
+- 11 game packages, 5668+ lines of code
 
 ### Changed
 - *(Nothing yet)*
