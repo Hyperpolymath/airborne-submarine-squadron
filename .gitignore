@@ -1,0 +1,80 @@
+# =================================================================
+# Git Ignore File - Airborne Submarine Squadron
+# =================================================================
+
+# Build artifacts
+obj/
+bin/
+*.o
+*.ali
+*.exe
+*.so
+*.a
+*.dll
+*.dylib
+
+# GNAT specific
+b~*.ad[sb]
+b__*.ad[sb]
+*.bexch
+*.cswi
+
+# SPARK verification
+gnatprove/
+*.spark
+*.mlw
+*.why
+
+# Editor/IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+.project
+.cproject
+.settings/
+*.sublime-*
+
+# Nix
+result
+result-*
+.direnv/
+
+# Logs and databases
+*.log
+*.db
+*.sqlite
+
+# Test results
+test-results/
+coverage/
+*.gcov
+*.gcda
+*.gcno
+
+# Documentation generated
+docs/generated/
+*.html
+*.pdf
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.bak
+
+# OS specific
+Thumbs.db
+.directory
+
+# Package managers
+*.zip
+*.tar.gz
+*.tgz
+*.tar.bz2
+
+# Distribution artifacts (tracked separately)
+dist/
+

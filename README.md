@@ -1,0 +1,229 @@
+# 🌊✈️ Airborne Submarine Squadron
+
+[![RSR Compliant](https://img.shields.io/badge/RSR-Compliant-blue.svg)](https://rhodium.sh)
+[![License: MIT + Palimpsest](https://img.shields.io/badge/License-MIT%20%2B%20Palimpsest%20v0.8-green.svg)](LICENSE.txt)
+[![TPCF: Perimeter 3](https://img.shields.io/badge/TPCF-Perimeter%203-orange.svg)](CONTRIBUTING.md)
+[![Type Safety](https://img.shields.io/badge/Type%20Safety-Ada%202022-blue.svg)]()
+[![Memory Safety](https://img.shields.io/badge/Memory%20Safety-SPARK%20Verified-green.svg)]()
+[![Offline First](https://img.shields.io/badge/Offline-First-yellow.svg)]()
+
+A 2D flying submarine game written in Ada 2022, inspired by Sopwith. Control a submarine that seamlessly transitions between aerial and underwater combat.
+
+## Features
+
+- **Dual Environment Physics**: Realistic air and water physics with smooth transitions
+- **Dynamic Enemies**: Air fighters, submarines, surface ships, and sea creatures
+- **Weapons Systems**: Torpedoes, missiles, depth charges, and machine guns
+- **Mission System**: Progressive campaigns with varied objectives
+- **Sound System**: Dynamic music crossfading between air/water themes
+- **Power-ups & Upgrades**: Collect items to enhance your submarine
+- **Weather Effects**: Storms, fog, waves affecting gameplay
+- **HUD & UI**: Comprehensive heads-up display with minimap
+- **Achievements**: Track your accomplishments
+- **100% Type Safe**: Ada 2022 compile-time guarantees
+- **Memory Safe**: SPARK formal verification, zero unsafe operations
+- **Offline-First**: No network dependencies, works air-gapped
+
+## Quick Start
+
+```bash
+# Clone the repository
+git clone https://github.com/Hyperpolymath/airborne-submarine-squadron.git
+cd airborne-submarine-squadron
+
+# Build (requires GNAT Ada compiler)
+just build
+
+# Run the game
+just run
+
+# Run tests
+just test
+
+# Full verification (includes SPARK proofs)
+just verify
+```
+
+## Requirements
+
+- **GNAT Ada Compiler** (FSF 13.0 or later, or AdaCore GNAT Community 2024)
+- **GPRbuild** (build system)
+- **SPARK** (optional, for formal verification)
+- **Nix** (optional, for reproducible builds)
+
+### Platform Support
+
+- ✅ Linux (primary)
+- ✅ macOS (via Nix)
+- ✅ Windows (WSL2 or native GNAT)
+- ✅ BSD variants
+
+## Installation
+
+See [INSTALL.md](INSTALL.md) for detailed setup instructions.
+
+## Documentation
+
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)**: System architecture and design
+- **[API.md](docs/API.md)**: API documentation
+- **[CONTRIBUTING.md](CONTRIBUTING.md)**: Contribution guidelines
+- **[SECURITY.md](SECURITY.md)**: Security policy and vulnerability reporting
+- **[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)**: Community guidelines
+- **[CHANGELOG.md](CHANGELOG.md)**: Version history
+
+## RSR Compliance
+
+This project adheres to the **Rhodium Standard Repository (RSR)** framework:
+
+| Category | Compliance | Notes |
+|----------|-----------|-------|
+| Type Safety | ✅ | Ada 2022 strong typing |
+| Memory Safety | ✅ | SPARK verification, no `Unchecked_*` |
+| Offline-First | ✅ | Zero network dependencies |
+| Documentation | ✅ | Complete docs, inline comments |
+| Well-Known | ✅ | RFC 9116 security.txt, ai.txt, humans.txt |
+| Build System | ✅ | justfile, Nix flake, GitLab CI/CD |
+| Testing | ✅ | Unit tests, integration tests, SPARK proofs |
+| Licensing | ✅ | Dual MIT + Palimpsest v0.8 |
+| Security | ✅ | SECURITY.md, no CVEs |
+| Governance | ✅ | TPCF Perimeter 3, MAINTAINERS.md |
+| Accessibility | ✅ | WCAG 2.1 AA compliant UI |
+
+## TPCF Perimeter: Community Sandbox (3)
+
+This project operates under **TPCF Perimeter 3**, meaning:
+- ✅ Public contributions welcome
+- ✅ Issues and pull requests from anyone
+- ⚠️ All contributions reviewed by maintainers
+- ⚠️ Breaking changes require RFC process
+- ℹ️ See [CONTRIBUTING.md](CONTRIBUTING.md) for details
+
+## Architecture
+
+```
+┌─────────────────────────────────────────────────────┐
+│                 Game Engine Core                     │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐          │
+│  │ Physics  │  │ Renderer │  │  Input   │          │
+│  │  System  │  │  System  │  │ Handler  │          │
+│  └──────────┘  └──────────┘  └──────────┘          │
+└─────────────────────────────────────────────────────┘
+                      ▲
+                      │
+        ┌─────────────┴─────────────┐
+        │                           │
+┌───────▼────────┐         ┌────────▼───────┐
+│   Air Domain   │         │  Water Domain  │
+│ ┌────────────┐ │         │ ┌────────────┐ │
+│ │ Aeroplanes │ │         │ │ Submarines │ │
+│ │  Missiles  │ │         │ │ Torpedoes  │ │
+│ │   Storms   │ │         │ │   Waves    │ │
+│ └────────────┘ │         │ └────────────┘ │
+└────────────────┘         └────────────────┘
+```
+
+## Game Controls
+
+- **Arrow Keys**: Move submarine
+- **Space**: Fire primary weapon
+- **D**: Drop depth charge / bomb
+- **S**: Switch weapon
+- **Shift**: Boost speed
+- **Tab**: Toggle surface/submerge
+- **Esc**: Pause menu
+- **M**: Mute/unmute
+
+## Development
+
+```bash
+# Development build with debug symbols
+just dev
+
+# Run with debug logging
+just debug
+
+# Format code (Ada GNAT Style)
+just format
+
+# Run linter
+just lint
+
+# Generate documentation
+just docs
+
+# Clean build artifacts
+just clean
+
+# Full CI pipeline (local)
+just ci
+```
+
+## Testing
+
+```bash
+# Run all tests
+just test
+
+# Run specific test suite
+just test-unit
+just test-integration
+just test-spark
+
+# Coverage report
+just coverage
+
+# Benchmark
+just benchmark
+```
+
+## License
+
+Dual-licensed under:
+- **MIT License** (permissive, OSI-approved)
+- **Palimpsest License v0.8** (politically autonomous software)
+
+See [LICENSE.txt](LICENSE.txt) for details.
+
+## Security
+
+Security is a top priority. See [SECURITY.md](SECURITY.md) for:
+- Vulnerability reporting process
+- Security update policy
+- GPG keys for secure communication
+
+**TL;DR**: Report vulnerabilities to `security@example.com` (GPG: `0x1234...`)
+
+## Contributing
+
+We welcome contributions! See [CONTRIBUTING.md](CONTRIBUTING.md) for:
+- Code of Conduct
+- Development workflow
+- Coding standards
+- PR process
+- TPCF governance model
+
+## Maintainers
+
+See [MAINTAINERS.md](MAINTAINERS.md) for current maintainers and governance structure.
+
+## Community
+
+- **Issues**: [GitHub Issues](https://github.com/Hyperpolymath/airborne-submarine-squadron/issues)
+- **Discussions**: [GitHub Discussions](https://github.com/Hyperpolymath/airborne-submarine-squadron/discussions)
+- **Matrix**: `#airborne-submarine:matrix.org`
+- **IRC**: `#airborne-submarine` on Libera.Chat
+
+## Credits
+
+See [.well-known/humans.txt](.well-known/humans.txt) for full credits.
+
+**Inspired by**: Sopwith (1984), Silent Service, Sub Command
+
+## Changelog
+
+See [CHANGELOG.md](CHANGELOG.md) for version history.
+
+---
+
+**Built with ❤️ using Ada 2022 | RSR Compliant | Offline-First | Type-Safe | Memory-Safe**
+

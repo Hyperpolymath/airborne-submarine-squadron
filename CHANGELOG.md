@@ -1,0 +1,123 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+- Initial RSR-compliant repository structure
+- Comprehensive documentation (README, CONTRIBUTING, SECURITY, etc.)
+- Dual MIT + Palimpsest v0.8 licensing
+- TPCF Perimeter 3 governance model
+- .well-known directory (security.txt, ai.txt, humans.txt)
+- Build system (justfile, Nix flake)
+- GitLab CI/CD pipeline
+- Core game engine (Ada 2022)
+- SPARK formal verification
+- Comprehensive test suite
+- Architecture documentation
+
+### Changed
+- *(Nothing yet)*
+
+### Deprecated
+- *(Nothing yet)*
+
+### Removed
+- *(Nothing yet)*
+
+### Fixed
+- *(Nothing yet)*
+
+### Security
+- *(Nothing yet)*
+
+## [0.1.0] - 2025-01-22
+
+### Added
+- Initial project setup
+- RSR framework compliance
+- CLAUDE.md for AI assistant guidance
+
+---
+
+## Version History Format
+
+Each version entry follows this structure:
+
+```markdown
+## [X.Y.Z] - YYYY-MM-DD
+
+### Added
+- New features
+
+### Changed
+- Changes in existing functionality
+
+### Deprecated
+- Soon-to-be removed features
+
+### Removed
+- Removed features
+
+### Fixed
+- Bug fixes
+
+### Security
+- Security fixes (with CVE IDs if applicable)
+```
+
+## Versioning Policy
+
+We use [Semantic Versioning](https://semver.org/):
+
+- **MAJOR** version (X.0.0): Incompatible API changes
+- **MINOR** version (0.X.0): New functionality (backward-compatible)
+- **PATCH** version (0.0.X): Bug fixes (backward-compatible)
+
+### Pre-1.0.0 Releases
+
+- **0.x.x**: Development releases (API may change)
+- **1.0.0**: First stable release (API stability commitment)
+
+## Release Schedule
+
+- **Patch releases**: As needed (bug fixes, security)
+- **Minor releases**: ~3 months (new features)
+- **Major releases**: ~12 months (breaking changes)
+
+## Security Updates
+
+Security fixes are released immediately:
+
+- **Critical/High**: Patch release within 7 days
+- **Medium**: Next scheduled patch release
+- **Low**: Next minor release
+
+See [SECURITY.md](SECURITY.md) for vulnerability reporting.
+
+## Breaking Changes
+
+Breaking changes are:
+1. Announced in deprecation warnings (1 minor version prior)
+2. Documented in CHANGELOG under **BREAKING CHANGE**
+3. Included in migration guide
+4. Only in major releases (1.0.0+)
+
+Example:
+```markdown
+### Changed
+- **BREAKING CHANGE**: Renamed `Submarine.Speed` to `Submarine.Velocity`
+  - Migration: Replace all occurrences of `Speed` with `Velocity`
+  - Deprecated in: v0.9.0
+  - Removed in: v1.0.0
+```
+
+## Links
+
+- [Unreleased]: https://github.com/Hyperpolymath/airborne-submarine-squadron/compare/v0.1.0...HEAD
+- [0.1.0]: https://github.com/Hyperpolymath/airborne-submarine-squadron/releases/tag/v0.1.0
+

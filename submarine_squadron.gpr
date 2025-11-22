@@ -1,0 +1,78 @@
+--  =================================================================
+--  Submarine Squadron - GNAT Project File
+--  =================================================================
+--
+--  RSR-Compliant Ada 2022 Project
+--  Type-Safe | Memory-Safe | Offline-First
+--
+--  Build with: gprbuild -P submarine_squadron.gpr
+--  =================================================================
+
+project Submarine_Squadron is
+
+   for Source_Dirs use ("src");
+   for Object_Dir use "obj";
+   for Exec_Dir use "bin";
+   for Main use ("main.adb");
+
+   type Mode_Type is ("debug", "release", "spark");
+   Mode : Mode_Type := external ("MODE", "debug");
+
+   package Compiler is
+      Common_Switches := (
+         "-gnat2022",           --  Ada 2022 standard
+         "-gnatwa",             --  All warnings
+         "-gnatwe",             --  Warnings as errors
+         "-gnatyyM99",          --  Style checks (max line 99 chars)
+         "-gnatyg",             --  GNAT style
+         "-gnaty3",             --  3-space indentation
+         "-gnatf",              --  Full error messages
+         "-gnatU",              --  Unique tags (safety)
+         "-fstack-check"        --  Stack overflow checking
+      );
+
+      case Mode is
+         when "debug" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-g",                --  Debug symbols
+               "-O0",               --  No optimization
+               "-gnata"             --  Enable assertions
+            );
+
+         when "release" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-O2",               --  Optimization
+               "-gnatn",            --  Inlining
+               "-funroll-loops"     --  Performance
+            );
+
+         when "spark" =>
+            for Default_Switches ("Ada") use Common_Switches & (
+               "-g",                --  Debug symbols
+               "-gnata",            --  Enable assertions
+               "-gnatd.F"           --  SPARK mode
+            );
+      end case;
+   end Compiler;
+
+   package Binder is
+      for Default_Switches ("Ada") use ("-Es");  --  Store traceback
+   end Binder;
+
+   package Linker is
+      for Default_Switches ("Ada") use ("-g");
+   end Linker;
+
+   package Builder is
+      for Default_Switches ("Ada") use ("-g", "-j0");  --  Parallel build
+   end Builder;
+
+   package Pretty_Printer is
+      for Default_Switches ("Ada") use (
+         "--max-line-length=99",
+         "--indentation=3",
+         "--no-separate-is"
+      );
+   end Pretty_Printer;
+
+end Submarine_Squadron;

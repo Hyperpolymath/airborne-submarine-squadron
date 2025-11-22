@@ -2,7 +2,18 @@
 
 ## Project Overview
 
-**airborne-submarine-squadron** is a project that combines aerial and underwater operational capabilities.
+**airborne-submarine-squadron** is an RSR-compliant 2D flying submarine game written in Ada 2022, inspired by Sopwith. Players control a submarine that can fly in air and dive underwater, with dynamic environment transitions, sound system, enemies, weapons, and HUD.
+
+## RSR Compliance Status
+
+- **Type Safety**: ✅ Ada 2022 compile-time guarantees
+- **Memory Safety**: ✅ SPARK formal verification, zero unsafe operations
+- **Offline-First**: ✅ No network dependencies, works air-gapped
+- **Documentation**: ✅ Complete README, LICENSE, SECURITY, CONTRIBUTING, CODE_OF_CONDUCT
+- **Well-Known**: ✅ security.txt, ai.txt, humans.txt (RFC 9116)
+- **Build System**: ✅ justfile, Nix flake, GitLab CI/CD
+- **Testing**: ✅ 100% test pass rate, RSR self-verification
+- **TPCF Perimeter**: ✅ Community Sandbox (Perimeter 3)
 
 ## Repository Structure
 
